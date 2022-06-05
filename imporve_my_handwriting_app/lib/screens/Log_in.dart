@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imporve_my_handwriting_app/screens/home_page.dart';
 
 class Log_in_screen extends StatelessWidget {
   final double fontSize = 100.0;
@@ -30,10 +31,10 @@ class Log_in_screen extends StatelessWidget {
 
   Container Log_in_box(double screenWidth, double screenHeight) {
     return Container(
-      width: screenWidth * 0.5,
-      height: screenHeight * 0.6,
+      width: screenWidth * 0.65,
+      height: screenHeight * 0.7,
       child: Padding(
-        padding: const EdgeInsets.all(0.5),
+        padding: const EdgeInsets.all(0.4),
         child: Container(
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -41,7 +42,7 @@ class Log_in_screen extends StatelessWidget {
             child: SingleChildScrollView(
               padding: EdgeInsets.symmetric(
                 horizontal: screenWidth * 0.025,
-                vertical: screenHeight * 0.04,
+                vertical: screenHeight * 0.02,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -196,7 +197,11 @@ Container log_In_Button(screenWidth, screenHeight, fontSize) {
     width: screenWidth * 0.3,
     height: fontSize - 20,
     child: ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        MaterialPage(
+            child: HomeScreen(didSelectStyle: (value) {},),
+          );
+      },
       child: Text("Log In"),
       style: ButtonStyle(
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
