@@ -10,6 +10,14 @@ class PracticePage extends StatefulWidget {
 
 class _PracticePageState extends State<PracticePage> {
   List<Offset> points = [];
+  final List<String> _writingStyles = [
+    "Porcelain Sans Serif",
+    "Little Day Font",
+    "Herbarium font",
+    "Selima Script",
+    "Balqis Font",
+    "Youngones_RS Font"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -171,6 +179,77 @@ class _PracticePageState extends State<PracticePage> {
             ),
           ),
         ],
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.blue,
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Colors.lightBlueAccent,
+                Colors.lightBlue,
+                Colors.blue,
+                Colors.blueAccent,
+                Colors.lightBlue,
+              ],
+            ),
+          ),
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.025,
+              ),
+              CircleAvatar(
+                backgroundColor: Colors.white,
+                radius: MediaQuery.of(context).size.height * 0.08,
+                // backgroundImage: Image.asset('assets/images/circleAvatar.png') as ImageProvider,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
+              Container(
+                color: Colors.transparent,
+                height: MediaQuery.of(context).size.height * 0.7,
+                width: MediaQuery.of(context).size.width,
+                child: ListView.builder(
+              itemCount: 6,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    SizedBox(
+                      height: 1,
+                    ),
+                    Card(
+                      elevation: 0.2,
+                      
+                      color: Color.fromARGB(0, 79, 79, 79),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      child: ListTile(
+                        title: Text(
+                          "${index + 1}. ${_writingStyles[index]}",
+                          style: TextStyle(color: Colors.white),
+                          textAlign: TextAlign.start,
+                        ),
+                        leading: SizedBox(
+                          width: 5,
+                          height: 5,
+                        ),
+                        onTap: (){
+                          // Go to Practice page.
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              }),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

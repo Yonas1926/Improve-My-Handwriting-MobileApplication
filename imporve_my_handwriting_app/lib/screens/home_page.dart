@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
     List<String> _writingStyles = ["Porcelain Sans Serif", "Little Day Font", 
     "Herbarium font", 
     "Selima Script", 
-    "Balqis Font", 
+    "Balqis Font", 
     "Youngones_RS Font"];
 
     return Scaffold(
