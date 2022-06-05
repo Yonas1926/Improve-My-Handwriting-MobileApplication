@@ -1,15 +1,22 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:imporve_my_handwriting_app/screens/My_Progress_page.dart';
+
+class Progress {
+  final String title;
+  final String offsets;
+
+  const Progress(this.title, this.offsets);
+}
 
 class PracticePage extends StatefulWidget {
   final int style_index;
 
   PracticePage({Key? key, required this.style_index}) : super(key: key);
 
-   
-
   @override
-  State<PracticePage> createState() => _PracticePageState(style_index: style_index);
+  State<PracticePage> createState() =>
+      _PracticePageState(style_index: style_index);
 }
 
 class _PracticePageState extends State<PracticePage> {
@@ -26,19 +33,21 @@ class _PracticePageState extends State<PracticePage> {
     "Patrick Hand",
     "Permanenet Marker"
   ];
-  
+
+  Map<String, List<Offset>> progress = {};
+
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
     const double fontsize = 100.0;
     TextStyle _writingStyle = TextStyle(
-                          letterSpacing: 1.5,
-                          color: Colors.white,
-                          fontSize: fontsize * 0.25,
-                          fontFamily: _list_of_writingStyles[style_index],
-                        );
-
+      letterSpacing: 1.5,
+      color: Colors.white,
+      fontSize: fontsize * 0.25,
+      fontFamily: _list_of_writingStyles[style_index],
+    );
+    int _progressIndex = 0;
 
     return Scaffold(
       appBar: AppBar(
@@ -149,7 +158,14 @@ class _PracticePageState extends State<PracticePage> {
                               primary: Colors.blueAccent.withOpacity(0.1),
                               onPrimary: Colors.white,
                             ),
-                            onPressed: () {}),
+                            onPressed: () {
+                              _progressIndex++;
+                              progress[_progressIndex as String] = points;
+                              MaterialPage(
+                                  child: MyProgressScreen(
+                                progress: progress,
+                              ));
+                            }),
                         ElevatedButton.icon(
                             label: Text("Clear"),
                             icon: Icon(
