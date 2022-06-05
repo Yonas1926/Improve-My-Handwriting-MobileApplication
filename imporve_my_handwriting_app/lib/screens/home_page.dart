@@ -1,5 +1,8 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:imporve_my_handwriting_app/screens/Log_in.dart';
+import 'package:imporve_my_handwriting_app/screens/My_Progress_page.dart';
 
 class HomeScreen extends StatelessWidget {
   List<String> _writingStyles = [
@@ -155,7 +158,7 @@ class HomeScreen extends StatelessWidget {
           height: 5,
         ),
         onTap: () {
-          // Go to My progress page.
+           // Go to My progress page.
         },
       ),
     );

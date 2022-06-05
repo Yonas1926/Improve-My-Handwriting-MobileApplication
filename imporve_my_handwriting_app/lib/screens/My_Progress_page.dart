@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class MyProgressScreen extends StatelessWidget {
   Map<String, List<Offset>> progress = {
-    "Prog 1": [Offset(10, 11)]
+    "Prog 1": [Offset(10, 11),Offset(10, 11),Offset(10, 11)],
+    "Prog 2": [Offset(10, 11),Offset(10, 11), Offset(10, 11)],
+    "Prog 3": [Offset(10, 11),Offset(10, 11), Offset(10, 11)]
   };
 
   MyProgressScreen({super.key, required this.progress});
@@ -15,6 +17,7 @@ class MyProgressScreen extends StatelessWidget {
           elevation: 2.0,
           title: Text("My Progress", style: TextStyle(color: Colors.black),),
           actions: [
+            
             Image.network(
                 "https://static.thenounproject.com/png/402637-200.png"),
             SizedBox(width: 10,)
@@ -32,7 +35,7 @@ class MyProgressScreen extends StatelessWidget {
             ),
             child: ListTile(
               title: Text(
-                "${entryList[index].key}",
+                "${entryList[0].key}",
                 style: TextStyle(color: Colors.white),
               ),
               leading: SizedBox(

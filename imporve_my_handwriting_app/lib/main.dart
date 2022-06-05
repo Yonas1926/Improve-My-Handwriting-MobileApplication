@@ -36,12 +36,12 @@ class _MyAppState extends State<MyApp> {
                 didSelectStyle: ((value) =>
                     setState(() => _selectedStyleIndex = value))),
           ),
-          // if (_selectedStyleIndex != -1)
-          //   MaterialPage(
-          //     child: PracticePage(
-          //       style_index: _selectedStyleIndex,
-          //     ),
-          //   )
+          if (_selectedStyleIndex != -1)
+            MaterialPage(
+              child: PracticePage(
+                style_index: _selectedStyleIndex,
+              ),
+            )
           // else if (_selectedStyleIndex != -2)
           //   MaterialPage(child: Log_in_screen()),
         ],

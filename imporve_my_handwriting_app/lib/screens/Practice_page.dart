@@ -2,12 +2,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:imporve_my_handwriting_app/screens/My_Progress_page.dart';
 
-class Progress {
-  final String title;
-  final String offsets;
+// class Progress {
+//   final String title;
+//   final String offsets;
 
-  const Progress(this.title, this.offsets);
-}
+//   const Progress(this.title, this.offsets);
+// }
 
 class PracticePage extends StatefulWidget {
   final int style_index;
@@ -160,11 +160,19 @@ class _PracticePageState extends State<PracticePage> {
                             ),
                             onPressed: () {
                               _progressIndex++;
-                              progress[_progressIndex as String] = points;
-                              MaterialPage(
-                                  child: MyProgressScreen(
+                              progress["${_progressIndex}"] = points;
+                              MyProgressScreen(
                                 progress: progress,
+                              );
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                    backgroundColor: Colors.blueAccent,
+                                content: Text("Your Progress has been Saved!"),
+                                duration: Duration(milliseconds: 500),
                               ));
+                              this.setState(() {
+                                points.clear();
+                              });
                             }),
                         ElevatedButton.icon(
                             label: Text("Clear"),
